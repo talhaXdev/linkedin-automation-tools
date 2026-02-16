@@ -1,0 +1,52 @@
+# Crowdfire
+
+**Content curation**
+
+Social media management with content curation
+
+---
+
+## Overview
+
+| Attribute | Details |
+|-----------|---------|
+| **Website** | [https://crowdfireapp.com](https://crowdfireapp.com) |
+| **Pricing** | Free-$99.99/month (Freemium) |
+| **Rating** | ⭐ 4.2/5.0 |
+| **Safety Score** | 🛡️🛡️🛡️🛡️🛡️ 5/5 |
+| **Best For** | Content curation |
+| **Founded** | 2010 |
+
+---
+
+## Key Features
+
+- Content curation
+- Publishing
+- Analytics
+- Mentions
+
+---
+
+## About Crowdfire
+
+Crowdfire is a freemium LinkedIn automation tool designed for content curation. 
+With a safety score of 5/5 and user rating of 4.2/5, it's a trusted choice in the LinkedIn automation space.
+
+Founded in 2010, Crowdfire has become a go-to solution for professionals looking to creating linkedin posts, articles, and content.
+
+---
+
+## Learn More
+
+📖 [Read Full Review on LinkedAutomation](https://linkedautomation.org/tools/crowdfire)
+
+💰 [View Pricing Details](https://linkedautomation.org/tools/crowdfire#pricing)
+
+⭐ [Compare with Similar Tools](https://linkedautomation.org/compare)
+
+---
+
+*Last updated: 2026-02-16*
+
+*This entry is part of the [LinkedIn Automation Tools Directory](https://linkedautomation.org) - the most comprehensive resource for LinkedIn automation software.*

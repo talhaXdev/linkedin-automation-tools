@@ -1,0 +1,95 @@
+name: Sync LinkedIn Tools Directory
+
+on:
+  schedule:
+    # Run daily at 2 AM UTC
+    - cron: '0 2 * * *'
+  workflow_dispatch:
+    inputs:
+      force_full:
+        description: 'Force full sync (not incremental)'
+        required: false
+        default: 'false'
+        type: choice
+        options:
+          - 'true'
+          - 'false'
+
+env:
+  NODE_VERSION: '18'
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+      
+      - name: Install dependencies
+        run: |
+          npm install node-fetch@2
+      
+      - name: Sync with source data
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if [ "${{ github.event.inputs.force_full }}" == "true" ]; then
+            node sync-to-github.js --use-git --force-full
+          else
+            node sync-to-github.js --use-git
+          fi
+      
+      - name: Update sync timestamp
+        run: |
+          echo "Last sync: $(date -u +"%Y-%m-%d %H:%M:%S UTC")" > .last-sync
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git add .last-sync
+          git diff --quiet && git diff --staged --quiet || git commit -m "Update sync timestamp [skip ci]"
+          git push
+
+  health-check:
+    runs-on: ubuntu-latest
+    needs: sync
+    
+    steps:
+      - name: Check website availability
+        run: |
+          curl -f -s -o /dev/null https://linkedautomation.org || exit 1
+          echo "✅ Website is accessible"
+      
+      - name: Verify repository structure
+        run: |
+          curl -f -s https://api.github.com/repos/${{ github.repository }}/contents/README.md \
+            -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" > /dev/null || exit 1
+          echo "✅ Repository structure verified"
+
+  notify:
+    runs-on: ubuntu-latest
+    needs: [sync, health-check]
+    if: always()
+    
+    steps:
+      - name: Notify on failure
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const issue = await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `🚨 Sync failed: ${new Date().toISOString().split('T')[0]}`,
+              body: `The automated sync workflow failed. Please check the [workflow logs](${context.payload.repository.html_url}/actions/runs/${context.runId}).`,
+              labels: ['bug', 'automated']
+            });
+            console.log(`Created issue #${issue.data.number}`);

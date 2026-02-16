@@ -1,0 +1,52 @@
+# Scoro
+
+**Professional services**
+
+Work management software
+
+---
+
+## Overview
+
+| Attribute | Details |
+|-----------|---------|
+| **Website** | [https://scoro.com](https://scoro.com) |
+| **Pricing** | $26-$63/month (Subscription) |
+| **Rating** | ⭐ 4.4/5.0 |
+| **Safety Score** | 🛡️🛡️🛡️🛡️🛡️ 5/5 |
+| **Best For** | Professional services |
+| **Founded** | 2013 |
+
+---
+
+## Key Features
+
+- Projects
+- CRM
+- Billing
+- Reporting
+
+---
+
+## About Scoro
+
+Scoro is a subscription LinkedIn automation tool designed for professional services. 
+With a safety score of 5/5 and user rating of 4.4/5, it's a trusted choice in the LinkedIn automation space.
+
+Founded in 2013, Scoro has become a go-to solution for professionals looking to complete linkedin automation and management platforms.
+
+---
+
+## Learn More
+
+📖 [Read Full Review on LinkedAutomation](https://linkedautomation.org/tools/scoro)
+
+💰 [View Pricing Details](https://linkedautomation.org/tools/scoro#pricing)
+
+⭐ [Compare with Similar Tools](https://linkedautomation.org/compare)
+
+---
+
+*Last updated: 2026-02-16*
+
+*This entry is part of the [LinkedIn Automation Tools Directory](https://linkedautomation.org) - the most comprehensive resource for LinkedIn automation software.*

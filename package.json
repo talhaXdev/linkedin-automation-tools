@@ -1,0 +1,41 @@
+{
+  "name": "linkedin-automation-tools-directory",
+  "version": "1.0.0",
+  "description": "The most comprehensive directory of LinkedIn automation tools - 425+ tools across 6 categories",
+  "main": "generate-repo.js",
+  "scripts": {
+    "generate": "node generate-repo.js",
+    "sync": "node sync-to-github.js",
+    "sync:git": "node sync-to-github.js --use-git",
+    "sync:force": "node sync-to-github.js --use-git --force-full",
+    "dry-run": "node sync-to-github.js --dry-run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/talhaXdev/linkedin-automation-tools.git"
+  },
+  "keywords": [
+    "linkedin",
+    "automation",
+    "sales",
+    "prospecting",
+    "lead-generation",
+    "marketing",
+    "social-selling",
+    "b2b",
+    "outreach",
+    "awesome-list"
+  ],
+  "author": "LinkedAutomation <https://linkedautomation.org>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/talhaXdev/linkedin-automation-tools/issues"
+  },
+  "homepage": "https://linkedautomation.org",
+  "dependencies": {
+    "node-fetch": "^2.7.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
